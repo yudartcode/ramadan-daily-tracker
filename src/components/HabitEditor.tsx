@@ -29,7 +29,7 @@ export default function HabitEditor() {
             <button className="rounded-md px-2 py-1.5 text-muted hover:bg-primary-soft disabled:opacity-30" onClick={() => moveHabit(h.id, -1)} disabled={i === 0} aria-label="Naik">↑</button>
             <button className="rounded-md px-2 py-1.5 text-muted hover:bg-primary-soft disabled:opacity-30" onClick={() => moveHabit(h.id, 1)} disabled={i === habits.length - 1} aria-label="Turun">↓</button>
             <button
-              className="rounded-md px-2 py-1.5 text-red-600 hover:bg-red-50 dark:hover:bg-red-950"
+              className="rounded-md px-2 py-1.5 text-red-600 hover:bg-red-500/10"
               onClick={() => confirm(`Hapus "${h.name}" beserta datanya?`) && removeHabit(h.id)}
               aria-label="Hapus"
             >

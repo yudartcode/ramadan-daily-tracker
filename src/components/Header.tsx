@@ -4,7 +4,7 @@ type Props = { year: number; total: number; today: number | null; totalDays: num
 
 export default function Header({ year, total, today, totalDays }: Props) {
   return (
-    <section className="flex items-center justify-between gap-4 rounded-2xl bg-primary p-5 text-surface shadow-sm sm:p-7">
+    <section className="flex items-center justify-between gap-4 rounded-2xl bg-hero p-5 text-on-hero shadow-sm sm:p-7">
       <div>
         <p className="text-xs uppercase tracking-[0.3em] text-accent">Daily Habits</p>
         <h1 className="mt-1 text-2xl font-bold tracking-tight sm:text-4xl">

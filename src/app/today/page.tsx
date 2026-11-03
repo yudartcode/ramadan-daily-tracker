@@ -20,7 +20,7 @@ export default function TodayPage() {
 
   return (
     <div className="mx-auto flex max-w-xl flex-col gap-4">
-      <section className="flex items-center justify-between rounded-2xl bg-primary p-5 text-surface">
+      <section className="flex items-center justify-between rounded-2xl bg-hero p-5 text-on-hero">
         <div>
           <p className="text-xs uppercase tracking-[0.3em] text-accent">Ramadhan {settings.year}</p>
           <h1 className="mt-1 text-3xl font-bold">Day {day}</h1>

@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import Nav from "@/components/Nav";
+import { THEME_INIT_SCRIPT } from "@/lib/themeScript";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -19,7 +20,10 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  themeColor: "#0f6b4f",
+  themeColor: [
+    { media: "(prefers-color-scheme: light)", color: "#0f6b4f" },
+    { media: "(prefers-color-scheme: dark)", color: "#0d1714" },
+  ],
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
@@ -27,7 +31,11 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
     <html
       lang="id"
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
+      suppressHydrationWarning
     >
+      <head>
+        <script dangerouslySetInnerHTML={{ __html: THEME_INIT_SCRIPT }} />
+      </head>
       <body className="min-h-full flex flex-col">
         <Nav />
         <main className="mx-auto w-full max-w-7xl flex-1 px-4 pt-4 pb-24 sm:pb-10">{children}</main>

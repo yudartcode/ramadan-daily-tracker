@@ -3,6 +3,7 @@
 import { useRef, useState } from "react";
 import HabitEditor from "@/components/HabitEditor";
 import Loading from "@/components/Loading";
+import ThemeSelector from "@/components/ThemeSelector";
 import { useHydrated } from "@/hooks/useHydrated";
 import { isRamadanData, useRamadanStore } from "@/store/useRamadanStore";
 
@@ -52,6 +53,11 @@ export default function SettingsPage() {
   return (
     <div className="mx-auto flex max-w-2xl flex-col gap-4">
       <h1 className="text-2xl font-bold">Pengaturan</h1>
+
+      <Card title="Tampilan">
+        <p className="mb-3 text-sm text-muted">Pilih tema terang, gelap, atau ikuti pengaturan sistem perangkat.</p>
+        <ThemeSelector />
+      </Card>
 
       <Card title="Periode Ramadan">
         <div className="grid gap-4 sm:grid-cols-3">

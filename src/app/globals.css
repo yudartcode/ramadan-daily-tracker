@@ -1,5 +1,16 @@
 @import "tailwindcss";
 
+@custom-variant dark {
+  @media (prefers-color-scheme: dark) {
+    &:where(:root:not([data-theme="light"]) *) {
+      @slot;
+    }
+  }
+  &:where([data-theme="dark"] *) {
+    @slot;
+  }
+}
+
 :root {
   --background: #f6f4ee;
   --foreground: #1c2a24;
@@ -10,10 +21,14 @@
   --primary-soft: #dcefe6;
   --accent: #c8962e;
   --accent-soft: #f6ebd2;
+  --hero: #0f6b4f;
+  --on-hero: #ffffff;
+  color-scheme: light;
 }
 
+/* Dark: follow the OS unless the user forced light; or when the user forced dark. */
 @media (prefers-color-scheme: dark) {
-  :root {
+  :root:not([data-theme="light"]) {
     --background: #0d1714;
     --foreground: #e8efe9;
     --surface: #14211d;
@@ -23,7 +38,25 @@
     --primary-soft: #183a2f;
     --accent: #e0b25a;
     --accent-soft: #3a2f17;
+    --hero: #12483a;
+    --on-hero: #e8efe9;
+    color-scheme: dark;
   }
+}
+
+:root[data-theme="dark"] {
+  --background: #0d1714;
+  --foreground: #e8efe9;
+  --surface: #14211d;
+  --muted: #8fa198;
+  --border: #233530;
+  --primary: #3fbf8f;
+  --primary-soft: #183a2f;
+  --accent: #e0b25a;
+  --accent-soft: #3a2f17;
+  --hero: #12483a;
+  --on-hero: #e8efe9;
+  color-scheme: dark;
 }
 
 @theme inline {
@@ -36,6 +69,8 @@
   --color-primary-soft: var(--primary-soft);
   --color-accent: var(--accent);
   --color-accent-soft: var(--accent-soft);
+  --color-hero: var(--hero);
+  --color-on-hero: var(--on-hero);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
 }
