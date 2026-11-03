@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
+import Footer from "@/components/Footer";
 import Nav from "@/components/Nav";
 import { THEME_INIT_SCRIPT } from "@/lib/themeScript";
 import "./globals.css";
@@ -38,7 +39,8 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       </head>
       <body className="min-h-full flex flex-col">
         <Nav />
-        <main className="mx-auto w-full max-w-7xl flex-1 px-4 pt-4 pb-24 sm:pb-10">{children}</main>
+        <main className="mx-auto w-full max-w-7xl flex-1 px-4 pt-4 pb-8">{children}</main>
+        <Footer />
       </body>
     </html>
   );
